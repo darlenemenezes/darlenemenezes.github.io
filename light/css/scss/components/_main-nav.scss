@@ -11,7 +11,7 @@
 		position: relative;
 	}
 	.site-logo {
-
+		
 		z-index: 99;
 		&.pos-absolute {
 			position: absolute;
@@ -26,7 +26,7 @@
 		position: relative;
 	}
 	.unslate_co--site-logo {
-		font-size: 2.2rem;
+		font-size: 1.7rem;
 		color: $white;
 		font-weight: 700;
 		span {
@@ -47,7 +47,7 @@
 				padding: 10px 7px;
 				display: block;
 				color: $white;
-				font-size: 24px;
+				font-size: 14px;
 				position: relative;
 				&:before {
 					left: 7px;
@@ -76,7 +76,7 @@
 			}
 			&.has-children {
 				position: relative;
-
+				
 				> .dropdown, > ul {
 					visibility: hidden;
 					opacity: 0;
@@ -189,7 +189,7 @@
 				}
 			}
 		}
-	}
+	}	
 
 	&.dark {
 		.unslate_co--site-logo {
@@ -213,7 +213,7 @@
 			top: 10px;
 			span {
 				background: $black;
-			}
+			}	
 		}
 	}
 
@@ -286,7 +286,7 @@
 			  width: 0%;
 			  opacity: 0;
 			}
-
+			
 			span:nth-child(3) {
 			  -webkit-transform: rotate(-45deg);
 			  -moz-transform: rotate(-45deg);
@@ -313,7 +313,7 @@
 		padding-top: 5px;
 		padding-bottom: 5px;
 
-
+	
 		.burger-toggle-menu {
 			top: 10px;
 			span {
@@ -334,7 +334,7 @@
 				text-align: left;
 				display: inline-block;
 				> a {
-
+					
 					display: block;
 					color: $black;
 					&:hover {
@@ -347,18 +347,18 @@
 						color: $primary;
 						&:before {
 							background: $white;
-						}
+						}	
 					}
 				}
 			}
 		}
-
+		
 		&.awake {
 			margin-top: 0px;
 			transition: .3s all ease-out;
 		}
 		&.sleep {
-			transition: .3s all ease-out;
+			transition: .3s all ease-out;	
 		}
 
 	}
@@ -408,14 +408,14 @@
 					height: 20px;
 					background: $black;
 					position: absolute;
-				}
+				} 
 				.bar1 {
 					transform: rotate(45deg);
 				}
 				.bar2 {
 					transform: rotate(-45deg);
 				}
-			}
+			}	
 		}
 	}
 	ul {
@@ -453,7 +453,7 @@
 								padding-left: 50px;
 								font-size: 14px;
 								padding-top: 5px;
-								padding-bottom: 5px;
+								padding-bottom: 5px;	
 							}
 						}
 					}
@@ -487,7 +487,7 @@
 					}
 					&.collapsed {
 						&:before {
-							transform: translate(-50%, -50%);
+							transform: translate(-50%, -50%);	
 						}
 					}
 				}
@@ -496,9 +496,9 @@
 					> li {
 						&.has-children {
 							.arrow-collapse {
-
+								
 								top: -10px;
-
+								
 							}
 						}
 					}

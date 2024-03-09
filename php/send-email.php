@@ -1,34 +1,48 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST["email"]);
-    $message = trim($_POST["message"]);
+// Replace this with your own email address
+$to = 'blackink.darlene@gmail.com';
 
-    $data = array(
-        'email' => $email,
-        'message' => $message
-    );
+function url(){
+  return sprintf(
+    "%s://%s",
+    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+    $_SERVER['SERVER_NAME']
+  );
+}
 
-    $formspreeEndpoint = 'https://formspree.io/f/mqkrlboe'; // Your Formspree form URL
+if($_POST) {
 
-    $ch = curl_init($formspreeEndpoint);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   $name = trim(stripslashes($_POST['name']));
+   $email = trim(stripslashes($_POST['email']));
+   $subject = trim(stripslashes($_POST['subject']));
+   $contact_message = trim(stripslashes($_POST['message']));
 
-    // Execute the request
-    $response = curl_exec($ch);
 
-    // Check if the request was successful
-    if ($response !== false) {
-        // You might want to handle the response here, but for simplicity, we'll just echo "OK"
-        echo "OK";
-    } else {
-        echo "Something went wrong. Please try again.";
-    }
+	if ($subject == '') { $subject = "Contact Form Submission"; }
 
-    // Close cURL session
-    curl_close($ch);
+   // Set Message
+   $message .= "Email from: " . $name . "<br />";
+	 $message .= "Email address: " . $email . "<br />";
+   $message .= "Message: <br />";
+   $message .= nl2br($contact_message);
+   $message .= "<br /> ----- <br /> This email was sent from your site " . url() . " contact form. <br />";
+
+   // Set From: header
+   $from =  $name . " <" . $email . ">";
+
+   // Email Headers
+	$headers = "From: " . $from . "\r\n";
+	$headers .= "Reply-To: ". $email . "\r\n";
+ 	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+   ini_set("sendmail_from", $to); // for windows server
+   $mail = mail($to, $subject, $message, $headers);
+
+	if ($mail) { echo "OK"; }
+   else { echo "Something went wrong. Please try again."; }
+
 }
 
 ?>

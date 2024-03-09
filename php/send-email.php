@@ -1,7 +1,7 @@
 <?php
 
 // Replace this with your actual Formspree endpoint
-$formspreeEndpoint = 'https://formspree.io/brummos@gmail.com';
+$formspreeEndpoint = 'https://formspree.io/f/mqkrlboe';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"]);

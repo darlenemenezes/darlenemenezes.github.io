@@ -560,7 +560,7 @@ var contactForm = function() {
 
 				$.ajax({
 					type: "POST",
-					url: "https://formspree.io/f/xvoeqqrb",
+					url: "https://formspree.io/f/mbjnkkyq",
 					data: $(form).serialize(),
 
 					beforeSend: function() {

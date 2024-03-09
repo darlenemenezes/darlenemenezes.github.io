@@ -1,48 +1,38 @@
 <?php
 
-// Replace this with your own email address
-$to = 'blackink.darlene@gmail.com';
+// Replace this with your actual Formspree endpoint
+$formspreeEndpoint = 'https://formspree.io/brummos@gmail.com';
 
-function url(){
-  return sprintf(
-    "%s://%s",
-    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-    $_SERVER['SERVER_NAME']
-  );
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+    $subject = isset($_POST["subject"]) ? trim($_POST["subject"]) : "Contact Form Submission";
+    $message = trim($_POST["message"]);
 
-if($_POST) {
+    $data = array(
+        'name' => $name,
+        'email' => $email,
+        'subject' => $subject,
+        'message' => $message
+    );
 
-   $name = trim(stripslashes($_POST['name']));
-   $email = trim(stripslashes($_POST['email']));
-   $subject = trim(stripslashes($_POST['subject']));
-   $contact_message = trim(stripslashes($_POST['message']));
+    $ch = curl_init($formspreeEndpoint);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+    // Execute the request
+    $response = curl_exec($ch);
 
-	if ($subject == '') { $subject = "Contact Form Submission"; }
+    // Close cURL session
+    curl_close($ch);
 
-   // Set Message
-   $message .= "Email from: " . $name . "<br />";
-	 $message .= "Email address: " . $email . "<br />";
-   $message .= "Message: <br />";
-   $message .= nl2br($contact_message);
-   $message .= "<br /> ----- <br /> This email was sent from your site " . url() . " contact form. <br />";
-
-   // Set From: header
-   $from =  $name . " <" . $email . ">";
-
-   // Email Headers
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $email . "\r\n";
- 	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-   ini_set("sendmail_from", $to); // for windows server
-   $mail = mail($to, $subject, $message, $headers);
-
-	if ($mail) { echo "OK"; }
-   else { echo "Something went wrong. Please try again."; }
-
+    // Check if the request was successful
+    if ($response !== false) {
+        echo "OK";
+    } else {
+        echo "Something went wrong. Please try again.";
+    }
 }
 
 ?>

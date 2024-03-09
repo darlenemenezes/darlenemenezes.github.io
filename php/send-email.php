@@ -1,20 +1,15 @@
 <?php
 
-// Replace this with your actual Formspree endpoint
-$formspreeEndpoint = 'https://formspree.io/f/mqkrlboe';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
-    $subject = isset($_POST["subject"]) ? trim($_POST["subject"]) : "Contact Form Submission";
     $message = trim($_POST["message"]);
 
     $data = array(
-        'name' => $name,
         'email' => $email,
-        'subject' => $subject,
         'message' => $message
     );
+
+    $formspreeEndpoint = 'https://formspree.io/f/mqkrlboe'; // Your Formspree form URL
 
     $ch = curl_init($formspreeEndpoint);
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -24,15 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the request
     $response = curl_exec($ch);
 
-    // Close cURL session
-    curl_close($ch);
-
     // Check if the request was successful
     if ($response !== false) {
+        // You might want to handle the response here, but for simplicity, we'll just echo "OK"
         echo "OK";
     } else {
         echo "Something went wrong. Please try again.";
     }
+
+    // Close cURL session
+    curl_close($ch);
 }
 
 ?>

@@ -590,7 +590,7 @@ var contactForm = function() {
 						setTimeout(function(){
 							$('#form-message-success').fadeIn();
 						}, 1400);
-						// $('#form-message-warning').html(xhr.responseText); //Something went wrong. Please try again.
+						// $('#form-message-warning').html("Something went wrong. Please try again.");
 						// $('#form-message-warning').fadeIn();
 						$submit.css('display', 'none');
 					}

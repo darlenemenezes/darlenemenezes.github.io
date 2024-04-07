@@ -2095,3 +2095,11 @@ span.error {
 .gsap-reveal-img .reveal-wrap .reveal-content .portfolio-item-content h3 {
   margin-bottom: 10px;
 }
+
+.title-format {
+  line-height: 0;
+}
+
+.title-format .portfolio-item-content h3 {
+  margin-bottom: 10px;
+}

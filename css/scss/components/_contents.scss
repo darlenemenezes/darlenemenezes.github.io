@@ -134,7 +134,7 @@ figure{
   > [class*="col-"] {
     padding-right: 15px!important;
     padding-left: 15px!important;
-    
+
     @include media-breakpoint-down(md) {
     	padding-right: 15px!important;
     	padding-left: 15px!important;
@@ -156,7 +156,7 @@ figure{
 		font-weight: 900;
 	}
 	p {
-		font-size: 16px;	
+		font-size: 16px;
 	}
 }
 
@@ -230,7 +230,7 @@ figure{
 			font-size: 12px;
 			color: rgba($white, .5);
 		}
-		
+
 	}
 }
 
@@ -322,13 +322,13 @@ figure{
     	top: 50%;
     	left: 50%;
     	transform: translate(-50%, -50%);
-	
+
     	&:before {
     		font-size: 40px;
     	}
     }
   }
- 
+
 }
 
 // Blog post
@@ -341,7 +341,7 @@ figure{
 
 // form
 .form-outline-style-v1 {
-	
+
 	.form-group	{
 		position: relative;
 		margin-bottom: 50px;
@@ -457,7 +457,7 @@ figure{
 		font-size: 14px;
 		top: 25px;
 		right: -10px;
-		width: 150px;
+		width: 180px;
 		// display: none;
 		position: absolute;
 		transform: translateY(-50%);
@@ -478,7 +478,7 @@ figure{
 			opacity: 1;
 			left: -10px;
 			visibility: visible;
-		}	
+		}
 	}
 	&:hover, &:focus {
 		border-color: lighten(#212121, 7%);
@@ -510,7 +510,7 @@ figure{
 		text-transform: uppercase;
 		letter-spacing: .1rem;
 		color: rgba($white, .5);
-	}	
+	}
 	.detail-val {
 		font-size: 16px;
 		color: $white;
@@ -747,7 +747,7 @@ span.error {
 		padding-bottom: 2rem;
 		display: inline-block;
 	}
-	
+
 }
 
 .logo-v1 {

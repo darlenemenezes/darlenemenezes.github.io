@@ -1690,7 +1690,7 @@ figure.dotted-bg:before {
   font-size: 14px;
   top: 25px;
   right: -10px;
-  width: 180px;
+  width: 80px;
   position: absolute;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);

@@ -20,14 +20,15 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="StyleSheet" href="css/flagdemo.css">
   </head>
   <body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
 
-    <nav class="unslate_co--site-mobile-menu">
+    <nav id="navigation-section-mobile" class="unslate_co--site-mobile-menu">
+
       <div class="close-wrap d-flex">
         <a href="#" class="d-flex ml-auto js-menu-toggle">
-          <span class="close-label">Fechar</span>
+          <span class="menu-close close-label"></span>
           <div class="close-times">
             <span class="bar1"></span>
             <span class="bar2"></span>
@@ -35,6 +36,22 @@
         </a>
       </div>
       <div class="site-mobile-inner"></div>
+        <div class="dropdown2" id="languageDropdown2">
+            <div class="dropdown-toggle" onclick="toggleDropdown2()">
+                <img src="https://flagcdn.com/w40/us.png" alt="Flag" id="selectedFlag2">
+            </div>
+            <div class="dropdown-menu2" id="dropdownMenu2">
+                <div onclick="setLanguage('nl', 'Dutch', 'nl')">
+                    <img src="https://flagcdn.com/w40/nl.png" alt=""> <span class="dutch"></span>
+                </div>
+                <div onclick="setLanguage('en', 'English', 'us')">
+                    <img src="https://flagcdn.com/w40/us.png" alt=""> <span class="english"></span>
+                </div>
+                <div onclick="setLanguage('ptbr', 'Portuguese', 'br')">
+                    <img src="https://flagcdn.com/w40/br.png" alt=""> <span class="portuguese"></span>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="unslate_co--site-wrap">
@@ -48,16 +65,16 @@
         </div>
         <!-- END lines -->
 
-        <nav class="unslate_co--site-nav site-nav-target">
+        <nav id="navigation-section" class="unslate_co--site-nav site-nav-target" style="display: flex; flex-direction: row;">
 
           <div class="container">
 
             <div class="row align-items-center justify-content-between text-left">
               <div class="col-md-5 text-right">
                 <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                  <li><a href="#home-section" class="nav-link">Inicial</a></li>
-                  <li><a href="#portfolio-section" class="nav-link">Portfólio</a></li>
-                  <li><a href="#about-section" class="nav-link">Sobre</a></li>
+                  <li><a href="#home-section" class="home nav-link"></a></li>
+                  <li><a href="#portfolio-section" class="portfolio nav-link"></a></li>
+                  <li><a href="#about-section" class="about nav-link"></a></li>
                 </ul>
               </div>
               <div class="site-logo pos-absolute">
@@ -65,17 +82,35 @@
               </div>
               <div class="col-md-5 text-right text-lg-left">
                 <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                  <li><a href="#services-section" class="nav-link">Serviços</a></li>
-                  <li><a href="#skills-section" class="nav-link">Habilidades</a></li>
-                  <li><a href="#contact-section" class="nav-link">Contato</a></li>
+                  <li><a href="#services-section" class="services nav-link"></a></li>
+                  <li><a href="#skills-section" class="skills nav-link"></a></li>
+                  <li><a href="#contact-section" class="contact nav-link"></a></li>
                 </ul>
 
                 <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
-                  <li><a href="#" class="js-menu-toggle">Menu</a></li>
+                  <li><a href="#" class="menu js-menu-toggle"></a></li>
                 </ul>
 
               </div>
             </div>
+          </div>
+
+
+          <div class="dropdown d-none d-lg-block" id="languageDropdown">
+              <div class="dropdown-toggle" onclick="toggleDropdown()">
+                  <img src="https://flagcdn.com/w40/us.png" alt="Flag" id="selectedFlag">
+              </div>
+              <div class="dropdown-menu" id="dropdownMenu">
+                  <div onclick="setLanguage('nl', 'Dutch', 'nl')">
+                      <img src="https://flagcdn.com/w40/nl.png" alt=""> <span class="dutch"></span>
+                  </div>
+                  <div onclick="setLanguage('en', 'English', 'us')">
+                      <img src="https://flagcdn.com/w40/us.png" alt=""> <span class="english"></span>
+                  </div>
+                  <div onclick="setLanguage('ptbr', 'Portuguese', 'br')">
+                      <img src="https://flagcdn.com/w40/br.png" alt=""> <span class="portuguese"></span>
+                  </div>
+              </div>
           </div>
 
         </nav>
@@ -86,8 +121,8 @@
           <div class="row align-items-center">
 
             <div class="col-md-7 mx-auto text-center">
-              <h1 class="heading gsap-reveal-hero">Bem-vindo</h1>
-              <h2 class="subheading gsap-reveal-hero">Sou uma artista versátil, domino diversas técnicas artísticas e adoro explorar novas possibilidades visuais sendo elas virtuais ou técnicas tradicionais.</h2>
+              <h1 class="heading gsap-reveal-hero"></h1>
+              <h2 class="subheading gsap-reveal-hero"></h2>
             </div>
 
           </div>
@@ -97,7 +132,7 @@
           <span class="mouse">
             <span class="scroll"></span>
           </span>
-          <span class="mouse-label">Rolar</span>
+          <span class="mouse-label"></span>
         </a>
 
       </div>
@@ -112,22 +147,22 @@
           <div class="portfolio-wrapper">
 
             <div class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
-              <h2 class="mr-auto heading-h2"><span class="gsap-reveal">Portfólio</span></h2>
+              <h2 class="mr-auto heading-h2"><span class="header gsap-reveal"></span></h2>
 
-              <a href="#" class="text-white js-filter d-inline-block d-lg-none">Filtrar</a>
+              <a href="#" class="filter-label text-white js-filter d-inline-block d-lg-none"></a>
 
               <div class="filter-wrap">
                 <div class="filter ml-auto" id="filters">
-                  <a href="#" class="active" data-filter="*">Tudo</a>
-                  <a href="#" data-filter=".illustration">Ilustração</a>
-                  <a href="#" data-filter=".branding">Branding</a>
-                  <a href="#" data-filter=".painting">Pintura</a>
-                  <a href="#" data-filter=".vector">Vetor</a>
-                  <a href="#" data-filter=".watercolor">Aquarela</a>
-                  <a href="#" data-filter=".sketch">Esboço</a>
+                  <a href="#" class="filter-all active" data-filter="*"></a>
+                  <a href="#" class="filter-illustration" data-filter=".illustration"></a>
+                  <a href="#" class="filter-branding" data-filter=".branding"></a>
+                  <a href="#" class="filter-painting" data-filter=".painting"></a>
+                  <a href="#" class="filter-vector" data-filter=".vector"></a>
+                  <a href="#" class="filter-watercolor" data-filter=".watercolor"></a>
+                  <a href="#" class="filter-sketch" data-filter=".sketch"></a>
 <!--                  <a href="#" data-filter=".nanquim">Nanquim</a>-->
-                  <a href="#" data-filter=".crochet">Crochê</a>
-                  <a href="#" data-filter=".other">Outro</a>
+                  <a href="#" class="filter-crochet" data-filter=".crochet"></a>
+                  <a href="#" class="filter-other" data-filter=".other"></a>
 <!--                  <a href="#" data-filter=".softPastel">Soft pastel</a>-->
 <!--                  <a href="#" data-filter=".marker">Marker</a>-->
                 </div>
@@ -137,12 +172,12 @@
             <div id="posts" class="row gutter-isotope-item">
 
                 <div class="item illustration vector col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_59.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Macaco programador">
+                    <a href="images/test/test_59.png" class="programmer-monkey-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Macaco programador</h3>
-                                <p>ilustração, vetor</p>
+                                <h3 class="programmer-monkey"></h3>
+                                <p class="programmer-monkey-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_59.png" class="lazyload img-fluid" alt="Images" />
@@ -150,12 +185,12 @@
                 </div>
 
                 <div class="item illustration vector col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_03.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Identidade virtual">
+                    <a href="images/test/test_03.jpg" class="virtual-identity-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Identidade virtual</h3>
-                                <p>ilustração, vetor</p>
+                                <h3 class="virtual-identity"></h3>
+                                <p class="virtual-identity-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_03.jpg" class="lazyload img-fluid" alt="Images" />
@@ -163,25 +198,25 @@
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_16.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Estudo por referência">
+                    <a href="images/test/test_16.jpg" class="study-by-reference-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Estudo por referência</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="study-by-reference"></h3>
+                                <p class="study-by-reference-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_22.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_22_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration vector col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_24.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Cervejas e afins">
+                    <a href="images/test/test_24.jpg" class="beers-and-company-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Cervejas e afins</h3>
-                                <p>ilustração, vetor</p>
+                                <h3 class="beers-and-company"></h3>
+                                <p class="beers-and-company-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_24.jpg" class="lazyload img-fluid" alt="Images" />
@@ -189,15 +224,15 @@
                 </div>
 
                 <div class="item illustration vector col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_25.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Retrato em cartoon">
+                    <a href="images/test/test_25.jpg" class="cartoon-portrait-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Retrato em cartoon</h3>
-                                <p>ilustração, vetor</p>
+                                <h3 class="cartoon-portrait"></h3>
+                                <p class="cartoon-portrait-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_11.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_11_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
@@ -228,12 +263,12 @@
 <!--                </div>-->
 
                 <div class="item illustration vector col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_57.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Ninfa da floresta">
+                    <a href="images/test/test_57.png" class="forest-nymph-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Ninfa da floresta</h3>
-                                <p>ilustração, vetor</p>
+                                <h3 class="forest-nymph"></h3>
+                                <p class="forest-nymph-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_57.png" class="lazyload img-fluid" alt="Images" />
@@ -241,51 +276,51 @@
                 </div>
 
                 <div class="item illustration vector col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_27.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Dríade da floresta">
+                    <a href="images/test/test_27.jpg" class="forest-dryad-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Dríade da floresta</h3>
-                                <p>ilustração, vetor</p>
+                                <h3 class="forest-dryad"></h3>
+                                <p class="forest-dryad-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_26.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_26_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration watercolor col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_17.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Cogumelos">
+                    <a href="images/test/test_17.jpg" class="mushrooms-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Cogumelos</h3>
-                                <p>ilustração, aquarela</p>
+                                <h3 class="mushrooms"></h3>
+                                <p class="mushrooms-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_19.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_19_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_28.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Dragão Cachorrinho">
+                    <a href="images/test/test_28.jpg" class="puppy-dragon-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Dragão Cachorrinho</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="puppy-dragon"></h3>
+                                <p class="puppy-dragon-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_27.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_27_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_23.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="O amor está no ar">
+                    <a href="images/test/test_23.jpg" class="love-in-the-air-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>O amor está no ar</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="love-in-the-air"></h3>
+                                <p class="love-in-the-air-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_23.jpg" class="lazyload img-fluid" alt="Images" />
@@ -293,28 +328,28 @@
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_10.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Loish">
+                    <a href="images/test/test_10.jpg" class="loish-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Loish</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="loish"></h3>
+                                <p class="loish-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_14.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_14_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_11.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Estudo com referência">
+                    <a href="images/test/test_11.jpg" class="study-with-reference-dwarf-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Estudo com referência</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="study-with-reference-dwarf"></h3>
+                                <p class="study-with-reference-dwarf-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_15.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_15_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
@@ -323,60 +358,60 @@
                         <div class="overlay">
                             <span class="wrap-icon icon-link2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Aventuras medievais</h3>
-                                <p>ilustração, esboço, aquarela</p>
+                                <h3 class="medieval-adventures"></h3>
+                                <p class="medieval-adventures-categories"></p>
                             </div>
                         </div>
-                        <img src="images/medieval_adventures/thumb_05.png" class="lazyload  img-fluid" alt="Images" />
+                        <img src="images/medieval_adventures/thumb_05_2.png" class="lazyload  img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_18.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Dossel esmeralda">
+                    <a href="images/test/test_18.jpg" class="emerald-canopy-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Dossel esmeralda</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="emerald-canopy"></h3>
+                                <p class="emerald-canopy-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_20.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_20_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_12.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Retrato em cartoon">
+                    <a href="images/test/test_12.jpg" class="cartoon-portrait-sister-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Retrato em cartoon</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="cartoon-portrait-sister"></h3>
+                                <p class="cartoon-portrait-sister-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_16.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_16_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_43.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Murloc">
+                    <a href="images/test/test_43.jpg" class="murloc-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Murloc</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="murloc"></h3>
+                                <p class="murloc-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_36.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_36_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration marker other col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_41.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Autorretrato">
+                    <a href="images/test/test_41.jpg" class="self-portrait-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Autorretrato</h3>
-                                <p>ilustração, marcador</p>
+                                <h3 class="self-portrait"></h3>
+                                <p class="self-portrait-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_41.jpg" class="lazyload img-fluid" alt="Images" />
@@ -384,129 +419,129 @@
                 </div>
 
                 <div class="item illustration watercolor col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_09.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Visão Rubi">
+                    <a href="images/test/test_09.jpg" class="ruby-vision-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Visão Rubi</h3>
-                                <p>ilustração, aquarela</p>
+                                <h3 class="ruby-vision"></h3>
+                                <p class="ruby-vision-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_13.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_13_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_21.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Iorubá o mago">
+                    <a href="images/test/test_21.jpg" class="ioruba-the-magician-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Iorubá o mago</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="ioruba-the-magician"></h3>
+                                <p class="ioruba-the-magician-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_24.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_24_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration watercolor col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_08.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Floresta negra">
+                    <a href="images/test/test_08.jpg" class="black-forest-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Floresta negra</h3>
-                                <p>ilustração, aquarela</p>
+                                <h3 class="black-forest"></h3>
+                                <p class="black-forest-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_12.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_12_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration softPastel other col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_04.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Beleza loira">
+                    <a href="images/test/test_04.jpg" class="blonde-beauty-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Beleza loira</h3>
-                                <p>ilustração, pastel seco</p>
+                                <h3 class="blonde-beauty"></h3>
+                                <p class="blonde-beauty-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_08.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_08_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_45.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Marilyn monroe">
+                    <a href="images/test/test_45.jpg" class="marilyn-monroe-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Marilyn monroe</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="marilyn-monroe"></h3>
+                                <p class="marilyn-monroe-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_35.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_35_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_44.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Uma paleta de sabores">
+                    <a href="images/test/test_44.jpg" class="palette-of-flavors-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Uma paleta de sabores</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="palette-of-flavors"></h3>
+                                <p class="palette-of-flavors-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_34.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_34_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_47.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="A riqueza da natureza">
+                    <a href="images/test/test_47.jpg" class="richness-of-nature-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>A riqueza da natureza</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="richness-of-nature"></h3>
+                                <p class="richness-of-nature-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_38.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_38_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_14.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Colheita floral">
+                    <a href="images/test/test_14.jpg" class="floral-harvest-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Colheita floral</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="floral-harvest"></h3>
+                                <p class="floral-harvest-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_17.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_17_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration sketch col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_06.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Khal drogo">
+                    <a href="images/test/test_06.jpg" class="khal-drogo-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Khal drogo</h3>
-                                <p>ilustração, esboço</p>
+                                <h3 class="khal-drogo"></h3>
+                                <p class="khal-drogo-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_01.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_01_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration sketch col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_13.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Amantes">
+                    <a href="images/test/test_13.jpg" class="lovers-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Amantes</h3>
-                                <p>ilustração, esboço</p>
+                                <h3 class="lovers"></h3>
+                                <p class="lovers-categories"></p>
                             </div>
                         </div>
                         <img src="images/test/test_13.jpg" class="lazyload img-fluid" alt="Images" />
@@ -514,54 +549,54 @@
                 </div>
 
                 <div class="item illustration sketch col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_22.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="A elfa interior">
+                    <a href="images/test/test_22.jpg" class="inner-elf-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>A elfa interior</h3>
-                                <p>ilustração, esboço</p>
+                                <h3 class="inner-elf"></h3>
+                                <p class="inner-elf-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_25.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_25_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration watercolor col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_19.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Cruzeiro pela costa vintage">
+                    <a href="images/test/test_19.jpg" class="vintage-coast-cruise-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Cruzeiro pela costa vintage</h3>
-                                <p>ilustração, aquarela</p>
+                                <h3 class="vintage-coast-cruise"></h3>
+                                <p class="vintage-coast-cruise-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_21.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_21_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration watercolor col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_20.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Rainha da dança">
+                    <a href="images/test/test_20.jpg" class="dancing-queen-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Rainha da dança</h3>
-                                <p>ilustração, aquarela</p>
+                                <h3 class="dancing-queen"></h3>
+                                <p class="dancing-queen-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_23.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_23_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration painting col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_15.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Suave quietude">
+                    <a href="images/test/test_15.jpg" class="gentle-stillness-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Suave quietude</h3>
-                                <p>ilustração, pintura</p>
+                                <h3 class="gentle-stillness"></h3>
+                                <p class="gentle-stillness-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_18.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_18_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
@@ -570,8 +605,8 @@
                         <div class="overlay">
                             <span class="wrap-icon icon-link2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Ethi toys</h3>
-                                <p>branding, crochê, vetor</p>
+                                <h3 class="ethi-toys"></h3>
+                                <p class="ethi-toys-categories"></p>
                             </div>
                         </div>
                         <img src="images/ethi_toys/ethi_toys_01.jpg" class="lazyload  img-fluid" alt="Images" />
@@ -583,8 +618,8 @@
                         <div class="overlay">
                             <span class="wrap-icon icon-link2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Menezinha papercraft</h3>
-                                <p>branding</p>
+                                <h3 class="menezinha-papercraft"></h3>
+                                <p class="menezinha-papercraft-categories"></p>
                             </div>
                         </div>
                         <img src="images/menezinha_papercraft/test_38.jpg" class="lazyload  img-fluid" alt="Images" />
@@ -592,41 +627,41 @@
                 </div>
 
                 <div class="item illustration sketch col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_26.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Amor com patas">
+                    <a href="images/test/test_26.jpg" class="love-with-paws-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Amor com patas</h3>
-                                <p>ilustração, esboço</p>
+                                <h3 class="love-with-paws"></h3>
+                                <p class="love-with-paws-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_28.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_28_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration sketch col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_48.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Conceitos de rosto">
+                    <a href="images/test/test_48.jpg" class="face-concepts-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>Conceitos de rosto</h3>
-                                <p>ilustração, esboço</p>
+                                <h3 class="face-concepts"></h3>
+                                <p class="face-concepts-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_39.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_39_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
                 <div class="item illustration nanquim other col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                    <a href="images/test/test_55.jpg" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="V for vendetta">
+                    <a href="images/test/test_55.jpg" class="v-for-vendetta-data-caption portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
                         <div class="overlay">
                             <span class="wrap-icon icon-photo2"></span>
                             <div class="portfolio-item-content">
-                                <h3>V for vendetta</h3>
-                                <p>ilustração, nanquim</p>
+                                <h3 class="v-for-vendetta"></h3>
+                                <p class="v-for-vendetta-categories"></p>
                             </div>
                         </div>
-                        <img src="images/test/thumb_45.png" class="lazyload img-fluid" alt="Images" />
+                        <img src="images/test/thumb_45_2.png" class="lazyload img-fluid" alt="Images" />
                     </a>
                 </div>
 
@@ -639,7 +674,7 @@
         <div class="container">
 
           <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Sobre mim</span></h2>
+            <h2 class="heading-h2 text-center divider"><span class="header gsap-reveal"></span></h2>
             <span class="gsap-reveal">
             <img src="images/divider.png" alt="divider" width="76">
             </span>
@@ -652,9 +687,9 @@
               </figure>
             </div>
             <div class="col-lg-4 pr-lg-5">
-              <h3 class="mb-4 heading-h3"><span class="gsap-reveal">Vamos fazer algo incrível juntos? </span></h3>
-              <p class="lead gsap-reveal">Olá, meu nome é Darlene Menezes, tenho formação em Artes Visuais e estudei Design por dois anos. Sou apaixonada pela história da Arte, Design, Literatura, Natureza e Cultura. A pluralidade dos meus interesses me proporciona experimentar e produzir imagens com técnicas e estilos variados, sejam elas inspiradas em obras clássicas ou soluções modernas e simplificadas.</p>
-              <p class="lead gsap-reveal">Mesclando a sensibilidade artística e a precisão do design, íntegro minhas referências de forma fluída ao meu trabalho. Estou sempre experimentando novas técnicas, explorando estilos e buscando novos desafios.. Adoraria dar vida às suas ideias com criatividade e precisão.</p>
+              <h3 class="mb-4 heading-h3"><span class="content-header gsap-reveal"></span></h3>
+              <p class="content1 lead gsap-reveal"></p>
+              <p class="content2 lead gsap-reveal"></p>
             </div>
           </div>
         </div>
@@ -664,7 +699,7 @@
           <div class="container">
 
             <div class="section-heading-wrap text-center mb-5">
-              <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Meus Serviços</span></h2>
+              <h2 class="heading-h2 text-center divider"><span class="header gsap-reveal"></span></h2>
               <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
             </div>
 
@@ -674,8 +709,8 @@
                   <div class="wrap-icon mb-3">
                     <img src="images/svg/001_character_design.svg" alt="Image" height="45">
                   </div>
-                  <h3>Design de <br> Personagens</h3>
-                  <p>Criação de um personagem convincente e carismático. Mais do que apenas a aparência, seu personagem possui uma história.</p>
+                  <h3 class="character-design"></h3>
+                  <p class="character-design-content"></p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 mb-4">
@@ -683,8 +718,8 @@
                   <div class="wrap-icon mb-3">
                     <img src="images/svg/002_vector_illustrations.svg" alt="Icon" height="45">
                   </div>
-                  <h3>Ilustrações <br> Vetoriais</h3>
-                  <p>Ideal para designs nítidos, limpos e aplicações versáteis. Design simples e sofisticado.</p>
+                  <h3 class="vector-illustrations"></h3>
+                  <p class="vector-illustrations-content"></p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 mb-4">
@@ -692,8 +727,8 @@
                   <div class="wrap-icon mb-3">
                     <img src="images/svg/003_watercolor_illustrations.svg" alt="Image" class="img-fluid" height="45" width="33.6">
                   </div>
-                  <h3>Ilustrações em <br> Aquarela</h3>
-                  <p>Artes fluidas com texturas orgânicas. Aparência expressiva e imprevisível.</p>
+                  <h3 class="watercolor-illustrations"></h3>
+                  <p class="watercolor-illustrations-content"></p>
                 </div>
               </div>
 
@@ -702,8 +737,8 @@
                   <div class="wrap-icon mb-3">
                     <img src="images/svg/004_traditional_illustrations.svg" alt="Image" height="45">
                   </div>
-                  <h3>Ilustrações <br> Tradicionais</h3>
-                  <p>Obras de arte feitas à mão usando técnicas tradicionais, com autenticidade e charme nostálgico.</p>
+                  <h3 class="traditional-illustrations"></h3>
+                  <p class="traditional-illustrations-content"></p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 mb-4">
@@ -711,8 +746,8 @@
                   <div class="wrap-icon mb-3">
                     <img src="images/svg/005_surface_design.svg" alt="Image" height="45">
                   </div>
-                  <h3>Design de <br> Superfície</h3>
-                  <p>Criando padrões e designs para várias superfícies, de têxteis a papéis de parede, misturando arte com funcionalidade.</p>
+                  <h3 class="surface-design"></h3>
+                  <p class="surface-design-content"></p>
                 </div>
               </div>
               <div class="col-md-6 col-lg-4 mb-4">
@@ -720,8 +755,8 @@
                   <div class="wrap-icon mb-3">
                     <img src="images/svg/006_brand_mascot.svg" alt="Image" height="45">
                   </div>
-                  <h3>Mascote de <br> Marca</h3>
-                  <p>Uma figura carismática e memorável para incorporar a identidade de uma marca, promovendo conexão e reconhecimento da marca.</p>
+                  <h3 class="brand-design"></h3>
+                  <p class="brand-design-content"></p>
                 </div>
               </div>
 
@@ -733,7 +768,7 @@
         <div class="container">
 <!--          <div class="section-heading-wrap text-center mb-5">-->
           <div class="section-heading-wrap text-center">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Minhas Habilidades</span></h2>
+            <h2 class="heading-h2 text-center divider"><span class="header gsap-reveal"></span></h2>
             <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
           </div>
 
@@ -744,7 +779,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Desenho Tradicional</span>
+                <span class="traditional-design counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -753,7 +788,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Concept Art</span>
+                <span class="concept-art counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
@@ -762,7 +797,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Design Gráfico</span>
+                <span class="graphic-design counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
@@ -771,19 +806,19 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Anatomia</span>
+                <span class="anatomy counter-label"></span>
               </div>
             </div>
           </div>
 
-          <div class="row pt-5">
+          <div class="row pt-lg-5">
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
               <div class="counter-v1 text-center">
 <!--                <span class="number-wrap">-->
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Estilo cartoon</span>
+                <span class="cartoon-style counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -792,7 +827,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Tipografia</span>
+                <span class="typography counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
@@ -801,7 +836,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Design de Logotipo</span>
+                <span class="logo-design counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
@@ -810,19 +845,19 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Ilustração Vetorial</span>
+                <span class="vector-illustration counter-label"></span>
               </div>
             </div>
           </div>
 
-          <div class="row pt-5">
+          <div class="row pt-lg-5">
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
               <div class="counter-v1 text-center">
                 <!--                <span class="number-wrap">-->
                 <!--                  <span class="number number-counter" data-number="100">0</span>-->
                 <!--                  <span class="append-text">%</span>-->
                 <!--                </span>-->
-                <span class="counter-label">Design de Personagens</span>
+                <span class="character-design counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -831,7 +866,7 @@
                 <!--                  <span class="number number-counter" data-number="100">0</span>-->
                 <!--                  <span class="append-text">%</span>-->
                 <!--                </span>-->
-                <span class="counter-label">Stop Motion</span>
+                <span class="stop-motion counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
@@ -840,7 +875,7 @@
                 <!--                  <span class="number number-counter" data-number="100">0</span>-->
                 <!--                  <span class="append-text">%</span>-->
                 <!--                </span>-->
-                <span class="counter-label">Design de Movimento</span>
+                <span class="motion-design counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
@@ -849,19 +884,19 @@
                 <!--                  <span class="number number-counter" data-number="100">0</span>-->
                 <!--                  <span class="append-text">%</span>-->
                 <!--                </span>-->
-                <span class="counter-label">Inkscape</span>
+                <span class="inkscape counter-label"></span>
               </div>
             </div>
           </div>
 
-          <div class="row pt-5">
+          <div class="row pt-lg-5">
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
               <div class="counter-v1 text-center">
 <!--                <span class="number-wrap">-->
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Adobe Illustrator</span>
+                <span class="adobe-illustrator counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -870,7 +905,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Adobe InDesign</span>
+                <span class="adobe-indesign counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
@@ -879,7 +914,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Adobe Photoshop</span>
+                <span class="adobe-photoshop counter-label"></span>
               </div>
             </div>
             <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
@@ -888,7 +923,7 @@
 <!--                  <span class="number number-counter" data-number="100">0</span>-->
 <!--                  <span class="append-text">%</span>-->
 <!--                </span>-->
-                <span class="counter-label">Krita</span>
+                <span class="krita counter-label"></span>
               </div>
             </div>
           </div>
@@ -900,52 +935,50 @@
       <div class="unslate_co--section" id="contact-section">
         <div class="container">
           <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Entre em Contato</span></h2>
+            <h2 class="heading-h2 text-center divider"><span class="header gsap-reveal"></span></h2>
             <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
           </div>
 
           <div class="row justify-content-between">
 
-            <div class="col-md-6">
+            <div id="send-email" class="col-md-6">
               <form method="post" class="form-outline-style-v1" id="contactForm" action="https://formspree.io/f/mqkrlboe">
                 <div class="form-group row mb-0">
 
                   <div class="col-lg-6 form-group gsap-reveal">
-                    <label for="name">Nome</label>
+                    <label class="name-label" for="name"></label>
                     <input name="name" type="text" class="form-control" id="name">
                   </div>
                   <div class="col-lg-6 form-group gsap-reveal">
-                    <label for="email">Email</label>
+                    <label class="email-label" for="email"></label>
                     <input name="email" type="email" class="form-control" id="email">
                   </div>
                   <div class="col-lg-12 form-group gsap-reveal">
-                    <label for="message">Escreva sua mensagem...</label>
+                    <label class="message-header" for="message"></label>
                     <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="form-group row gsap-reveal">
                     <div class="col-md-12 d-flex align-items-center">
-                      <input type="submit" class="btn btn-outline-pill btn-custom-light mr-3" value="Enviar Mensagem">
+                      <input type="submit" class="submit-label btn btn-outline-pill btn-custom-light mr-3">
                       <span class="submitting"></span>
                     </div>
                   </div>
               </form>
               <div id="form-message-warning" class="mt-4"></div>
-              <div id="form-message-success">
-                  Sua mensagem foi enviada, obrigado!
-              </div>
+              <div id="form-message-success" class="success-message"></div>
 
             </div>
 
-            <div class="col-md-4">
+            <div id="contact-information" class="col-md-4">
               <div class="contact-info-v1">
                 <div class="gsap-reveal d-block">
-                  <span class="d-block contact-info-label">Email</span>
+                  <span class="email d-block contact-info-label"></span>
                   <a class="contact-info-val">blackink.darlene@gmail.com</a>
                 </div>
                 <div class="gsap-reveal d-block">
-                  <span class="d-block contact-info-label">País</span>
-                  <a class="contact-info-val">Brazil</a>
+                  <span class="country d-block contact-info-label"></span>
+                  <a class="country-value contact-info-val"></a>
                 </div>
               </div>
             </div>
@@ -959,23 +992,28 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-7">
-
               <div class="footer-site-logo"><a href="#">Darlene<span>.</span></a></div>
 
               <ul class="footer-site-social">
-                <li><a href="https://www.linkedin.com/in/darlene-m-8b0977101" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/darlene-menezes" target="_blank">LinkedIn</a></li>
                 <li><a href="https://www.instagram.com/darlenemenezesart" target="_blank">Instagram</a></li>
                 <li><a href="https://dribbble.com/darlenemds" target="_blank">Dribbble</a></li>
                 <li><a href="https://www.artstation.com/darlenemds" target="_blank">ArtStation</a></li>
                 <li><a href="https://www.behance.net/darlenemenezes" target="_blank">Behance</a></li>
               </ul>
 
-              <p class="site-copyright">
-                  Direitos Autorais &copy;
+              <p id="copyright" class="site-copyright">
+                  <span class="text-part"></span> &copy;
                 <script>
                   document.write(new Date().getFullYear());
-                </script> Todos os direitos reservados
+                </script>
+                <span class="text-end"></span>
               </p>
+<!--              <select id="languageSwitcher" onchange="setLanguage2(this.value)">-->
+<!--                <option class="dutch" value="nl"></option>-->
+<!--                <option class="english" value="en"></option>-->
+<!--                <option class="portuguese" value="ptbr"></option>-->
+<!--              </select>-->
 
             </div>
           </div>
